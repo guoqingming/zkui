@@ -8,10 +8,10 @@ Requires Java 8 to run.
 
 Setup
 ====================
-1. Specify zookeeper address in configuration file "application.properties"  ``` zk.url=127.0.0.1 ```
+1. Specify zookeeper address in configuration file "application.properties"  ``` zk.url=127.0.0.1:2181 ```
 2. excute sql script db.sql
 3. Run the jar. ( nohup java -jar zkui-2.0-SNAPSHOT-jar-with-dependencies.jar & )
-4. <a href="http://localhost:9090">http://localhost:9090</a> 
+4. <a href="http://localhost:8888">http://localhost:8888</a> 
 
 Login Info
 ====================
@@ -131,32 +131,32 @@ Screenshots
 ====================
 Basic Role Based Authentication
 <br/>
-<img src="https://raw.github.com/DeemOpen/zkui/master/images/zkui-0.png"/>
+<img src="https://raw.github.com/guoqingming/zkui/master/images/zkui-0.png"/>
 <br/>
 
 Dashboard Console
 <br/>
-<img src="https://raw.github.com/DeemOpen/zkui/master/images/zkui-1.png"/>
+<img src="https://raw.github.com/guoqingming/zkui/master/images/zkui-1.png"/>
 <br/>
 
 CRUD Operations
 <br/>
-<img src="https://raw.github.com/DeemOpen/zkui/master/images/zkui-2.png"/>
+<img src="https://raw.github.com/guoqingming/zkui/master/images/zkui-2.png"/>
 <br/>
 
 Import Feature
 <br/>
-<img src="https://raw.github.com/DeemOpen/zkui/master/images/zkui-3.png"/>
+<img src="https://raw.github.com/guoqingming/zkui/master/images/zkui-3.png"/>
 <br/>
 
 Track History of changes
 <br/>
-<img src="https://raw.github.com/DeemOpen/zkui/master/images/zkui-4.png"/>
+<img src="https://raw.github.com/guoqingming/zkui/master/images/zkui-4.png"/>
 <br/>
 
 Status of Zookeeper Servers
 <br/>
-<img src="https://raw.github.com/DeemOpen/zkui/master/images/zkui-5.png"/>
+<img src="https://raw.github.com/guoqingming/zkui/master/images/zkui-5.png"/>
 <br/>
 
 License & Contribution
