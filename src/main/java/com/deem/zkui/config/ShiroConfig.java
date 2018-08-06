@@ -78,7 +78,7 @@ public class ShiroConfig {
         //认证查询
         jdbcRealm.setAuthenticationQuery("select password from user where username = ?");
         //用户角色查询
-        jdbcRealm.setUserRolesQuery("select rname from test_user_roles where username = ?");
+        jdbcRealm.setUserRolesQuery("select rname from role  where username = ?");
         return jdbcRealm;
 
     }
