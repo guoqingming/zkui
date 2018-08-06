@@ -34,6 +34,7 @@ release.properties
 # node ignore
 
 # Logs
+logs/*
 *.log
 
 # Runtime data
