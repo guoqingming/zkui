@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+  "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+  <context id="context" targetRuntime="MyBatis3">
+
+    <!-- 识别关键字 -->
+    <property name="autoDelimitKeywords" value="true"/>
+    <property name="beginningDelimiter" value="`"/>
+    <property name="endingDelimiter" value="`"/>
+
+
+    <!-- 配置相关插件-->
+    <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+    <plugin type="com.jrq.plugin.DefaultNamePlugin"/>
+    <plugin type="com.jrq.plugin.LombokAnnotationPlugin"/>
+    <!-- 统一格式-->
+    <commentGenerator type="com.jrq.plugin.NormalCommentGenerator">
+      <property name="suppressAllComments" value="false"/>
+      <property name="addRemarkComments" value="true"/>
+      <property name="dateFormat" value="yyyy-MM-dd"/>
+    </commentGenerator>
+
+
+    <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+      connectionURL="jdbc:mysql://10.1.2.104:3306/jrqact?tinyInt1isBit=false&amp;
+                        useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull"
+      userId="dev_oper" password="0755oper"/>-->
+<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+      connectionURL="jdbc:mysql://localhost:3306/zkui?tinyInt1isBit=false&amp;
+                        useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull"
+      userId="root" password="root"/>
+      
+    <!-- 处理TINYINT(1) 等 -->
+    <javaTypeResolver type="com.jrq.plugin.DefaultJavaTypeResolverDefault">
+      <property name="forceBigDecimals" value="true"/>
+    </javaTypeResolver>
+
+    <!-- domaim=po持久化对象-->
+    <javaModelGenerator targetPackage="com.deem.zkui.domain" targetProject="src/main/java">
+      <property name="enableSubPackages" value="false"/>
+      <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+
+    <!-- xml生成地址 -->
+    <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+      <property name="enableSubPackages" value="false"/>
+      <property name="rootInterface" value="mapper"/>
+    </sqlMapGenerator>
+
+    <!-- mapper接口地址 -->
+    <javaClientGenerator targetPackage="com.deem.zkui.mapper" targetProject="src/main/java"
+                         type="XMLMAPPER">
+      <property name="enableSubPackages" value="false"/>
+    </javaClientGenerator>
+<!-- Maven Build… : mybatis-generator:generate -->
+      <!--<table tableName="t_wealth_user" domainObjectName="WealthUser"/>-->
+      <!--<table tableName="t_wealth_cash_sort_record" domainObjectName="WealthCashSortRecord"/>-->
+      <!--<table tableName="t_wealth_cash" domainObjectName="WealthCash"/>-->
+      <!--<table tableName="t_wealth_cash_sort_record" domainObjectName="WealthCashSortRecord"/> -->
+      <!--<table tableName="t_wealth_invest_record" domainObjectName="WealthInvestRecord"/>-->
+      <!--<table tableName="p_bank_info" domainObjectName="BankInfo"/>-->
+      <!--<table tableName="sys_area" domainObjectName="sysArea"/>-->
+      <!--<table tableName="bank_card_info" domainObjectName="BankCardInfo"/>-->
+      <table tableName="user" domainObjectName="User"/>
+      <table tableName="user_role" domainObjectName="UserRole"/>
+      <table tableName="role" domainObjectName="Role"/>
+
+
+  </context>
+
+</generatorConfiguration>

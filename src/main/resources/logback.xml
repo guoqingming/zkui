@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/> <!-- logback 提供的基本配置 -->
+
+    <!-- 控制台 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>requstID: %X{requestId} [%-5level] %d{yyyy-MM-dd-HH:mm:ss} %logger{36} %line: %msg %n</Pattern>   <!-- 输出格式 -->
+            <charset>UTF-8</charset> <!-- 解决中文乱码问题 -->
+        </encoder>
+    </appender>
+
+    <!-- 按照每天生成日志文件 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>logs/mbs.log</File>
+         <encoder>
+            <pattern>requstID: %X{requestId} [%d{yyyy-MM-dd HH:mm:ss}][%thread][%-5level][%logger:%L] - %m%n</pattern>
+            <charset>UTF-8</charset>  <!--解决中文乱码问题-->
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/mbs-%d{yyyyMMdd}-%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <!-- 将上面两个 appender 关联到我们的项目 -->
+    <logger name="com.jrq" level="DEBUG" additivity="false"> <!-- name 是项目包名，为了方便调试，输出 DEBUG 级别及其以上的log -->
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <!-- 其他框架的日志输出 -->
+    <property name="LOG_FILE" value="logs/mbs.log" />
+    <logger name="org.springframework.web" level="INFO"/>   <!-- spring web 包下的 logger, 只输出 INFO 级别的 -->
+    <logger name="org.springframework.boot.web.filter" level="INFO"/>
+</configuration>
