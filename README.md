@@ -9,8 +9,8 @@ Requires Java 8 to run.
 Setup
 ====================
 1. Specify zookeeper address in configuration file "application.properties"  ``` zk.url=127.0.0.1:2181 ```
-2. excute sql script db.sql
-3. Run the jar. ( nohup java -jar zkui-2.0-SNAPSHOT-jar-with-dependencies.jar & )
+2. excute sql script [init.sql](https://github.com/guoqingming/zkui/blob/master/sql/init.sql)
+3. run the application as common springboot application ,then visit url in browser as follows
 4. <a href="http://localhost:8888">http://localhost:8888</a> 
 
 Login Info
@@ -81,20 +81,20 @@ REST call
 A lot of times you require your shell scripts to be able to read properties from zookeeper. This can now be achieved with a http call. Password are not exposed via rest api for security reasons. The rest call is a read only operation requiring no authentication.
 
 Eg:
-http://localhost:9090/acd/appconfig?propNames=foo&host=myhost.com
+http://localhost:8888/acd/appconfig?propNames=foo&host=myhost.com
 This will first lookup the host name under /appconfig/hosts and then find out which path the host point to. Then it will look for the property under that path.
 
 There are 2 additional properties that can be added to give better control.
 cluster=cluster1
-http://localhost:9090/acd/appconfig?propNames=foo&cluster=cluster1&host=myhost.com
+http://localhost:8888/acd/appconfig?propNames=foo&cluster=cluster1&host=myhost.com
 In this case the lookup will happen on lookup path + cluster1.
 
 app=myapp
-http://localhost:9090/acd/appconfig?propNames=foo&app=myapp&host=myhost.com
+http://localhost:8888/acd/appconfig?propNames=foo&app=myapp&host=myhost.com
 In this case the lookup will happen on lookup path + myapp.
 
 A shell script will call this via
-MY_PROPERTY="$(curl -f -s -S -k "http://localhost:9090/acd/appconfig?propNames=foo&host=`hostname -f`" | cut -d '=' -f 2)"
+MY_PROPERTY="$(curl -f -s -S -k "http://localhost:8888/acd/appconfig?propNames=foo&host=`hostname -f`" | cut -d '=' -f 2)"
 echo $MY_PROPERTY
 
 Standardization
