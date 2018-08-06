@@ -4,7 +4,7 @@ A UI dashboard that allows CRUD operations on Zookeeper.
 
 Requirements
 ====================
-Requires Java 7 to run.
+Requires Java 8 to run.
 
 Setup
 ====================
@@ -22,17 +22,18 @@ You can change this in the config.cfg
 
 Technology Stack
 ====================
-1. Embedded Jetty Server.
+1. Springboot.
 2. Freemarker template.
-3. H2 DB.
-4. Active JDBC.
+3. Mysql.
+4. Mybatis.
 5. JSON.
 6. SLF4J.
 7. Zookeeper.
-8. Apache Commons File upload.
+8. Apache Curator ,Commons File upload.
 9. Bootstrap.
 10. Jquery.
-11. Flyway DB migration.
+11. shiro
+
 
 Features
 ====================
@@ -163,5 +164,3 @@ License & Contribution
 
 ZKUI is released under the Apache 2.0 license. Comments, bugs, pull requests, and other contributions are all welcomed!
 
-Thanks to Jozef Krajčovič for creating the logo which has been used in the project.
-https://www.iconfinder.com/iconsets/origami-birds
