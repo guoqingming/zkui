@@ -33,7 +33,7 @@
     </logger>
 
     <!-- 其他框架的日志输出 -->
-    <property name="LOG_FILE" value="logs/mbs.log" />
+    <property name="LOG_FILE" value="logs/zkui.log" />
     <logger name="org.springframework.web" level="INFO"/>   <!-- spring web 包下的 logger, 只输出 INFO 级别的 -->
     <logger name="org.springframework.boot.web.filter" level="INFO"/>
 </configuration>
